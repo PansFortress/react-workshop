@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom'
 
 ////////////////////////////////////////////////////////////////////////////////
 // React components are really just functions that take attributes
-//const element = React.DOM.input({type: 'text'})
-//ReactDOM.render(element, document.getElementById('app'))
+// const element = React.DOM.input({type: 'text'})
+// ReactDOM.render(element, document.getElementById('app'))
 
 ////////////////////////////////////////////////////////////////////////////////
 // You can also pass in children as extra arguments
@@ -18,28 +18,28 @@ import ReactDOM from 'react-dom'
 
 ////////////////////////////////////////////////////////////////////////////////
 // And build up more UI
-//const { div, select, option, h1 } = React.DOM
-//const element = div({},
-                  //h1({className: 'hot'}, 'These are just functions'),
-                  //select({value: '2'},
-                    //option({value: '1'}, 'one'),
-                    //option({value: '2'}, 'two'),
-                    //option({value: '3'}, 'three')
-                  //)
-                 //)
-//ReactDOM.render(element, document.getElementById('app'))
+// const { div, select, option, h1 } = React.DOM
+// const element = div({},
+//                   h1({className: 'hot'}, 'These are just functions'),
+//                   select({value: '2'},
+//                     option({value: '1'}, 'one'),
+//                     option({value: '2'}, 'two'),
+//                     option({value: '3'}, 'three')
+//                   )
+//                  )
+// ReactDOM.render(element, document.getElementById('app'))
 
 
 ////////////////////////////////////////////////////////////////////////////////
 // lets look at one of them in the console
 // don't get upset, `className` is a DOM thing
-//console.log(element)
+// console.log(element)
 
 
 ////////////////////////////////////////////////////////////////////////////////
 // can pass in functions as event handlers
-//const element = React.DOM.button({onClick: function() { alert('clicked!') }}, 'alert!')
-//ReactDOM.render(element, document.getElementById('app'))
+// const element = React.DOM.button({onClick: function() { alert('clicked!') }}, 'alert!')
+// ReactDOM.render(element, document.getElementById('app'))
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -62,18 +62,18 @@ import ReactDOM from 'react-dom'
 
 ////////////////////////////////////////////////////////////////////////////////
 // JSX is simply different syntax for calling functions
-//const element = <div className="App">
-                //<h1 className="Title">Hello!</h1>
-                //<p>Pork Carnitas street tacos are the best</p>
-              //</div>
+// const element = <div className="App">
+//                 <h1 className="Title">Hello!</h1>
+//                 <p>Pork Carnitas street tacos are the best</p>
+//               </div>
 
-//const { div, h1, p } = React.DOM
-//const element = div({ className: "App" },
-                //h1({ className: "Title" }, 'Hello!'),
-                //p({}, 'Pork Carnitas street tacos are the best')
-              //)
+const { div, h1, p } = React.DOM
+const element = div({ className: "App" },
+                h1({ className: "Title" }, 'Hello!'),
+                p({}, 'Pork Carnitas street tacos are the best')
+              )
 
-//ReactDOM.render(element, document.getElementById('app'))
+ReactDOM.render(element, document.getElementById('app'))
 
 ////////////////////////////////////////////////////////////////////////////////
 // no special template syntax/helpers, just use Array methods on lists

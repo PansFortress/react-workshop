@@ -38,7 +38,7 @@ function Menu() {
       <h1>{DATA.title}</h1>
       <ul>
         {items.map(function(item){
-          return <li> {item.name}</li>
+          return <li key={item.id}> {item.name}</li>
         })}
       </ul>
       Open the console, you have failing tests.

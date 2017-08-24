@@ -35,17 +35,35 @@ styles.panel = {
 }
 
 class Tabs extends React.Component {
+  state = {
+    activeIndex: 0,
+  }
+
+  clickHandler(e) {
+    console.log(e);
+  }
+
   render() {
+    const { data } = this.props;
+    const { activeIndex } = this.state; 
+
+    const tabs = data.map((entry, index) => {
+            return (
+              <div 
+                className = "Tab" 
+                key={entry.id} 
+                style={styles.tab}
+                onClick = { () => this.clickHandler(index)}>
+                {entry.name}
+              </div>
+          )})
+
+
     return (
       <div className="Tabs">
-        <div className="Tab" style={styles.activeTab}>
-          Active
-        </div>
-        <div className="Tab" style={styles.tab}>
-          Inactive
-        </div>
+        {tabs}
         <div className="TabPanel" style={styles.panel}>
-          Panel
+          {data[activeIndex].description}
         </div>
       </div>
     )

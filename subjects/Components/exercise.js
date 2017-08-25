@@ -48,14 +48,11 @@ class Tabs extends React.Component {
     const { activeIndex } = this.state;
 
     const tabs = data.map((entry, index) => {
-      const isActive = index === activeIndex;
-      const style = isActive ? styles.activeTab : styles.tab;
-
       return (
         <div
           className="Tab"
           key={entry.id}
-          style={style}
+          style={index === activeIndex ? styles.activeTab : styles.tab}
           onClick={() => this.clickHandler(index)}
         >
           {entry.name}

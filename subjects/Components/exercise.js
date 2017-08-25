@@ -11,53 +11,57 @@
 // - Make <Tabs> generic so that it doesn't know anything about
 //   country data (Hint: good propTypes help)
 ////////////////////////////////////////////////////////////////////////////////
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 
-const styles = {}
+const styles = {};
 
 styles.tab = {
-  display: 'inline-block',
+  display: "inline-block",
   padding: 10,
   margin: 10,
-  borderBottom: '4px solid',
-  borderBottomColor: '#ccc',
-  cursor: 'pointer'
-}
+  borderBottom: "4px solid",
+  borderBottomColor: "#ccc",
+  cursor: "pointer"
+};
 
 styles.activeTab = {
   ...styles.tab,
-  borderBottomColor: '#000'
-}
+  borderBottomColor: "#000"
+};
 
 styles.panel = {
   padding: 10
-}
+};
 
 class Tabs extends React.Component {
   state = {
-    activeIndex: 0,
-  }
+    activeIndex: 0
+  };
 
-  clickHandler(e) {
-    console.log(e);
+  clickHandler(activeIndex) {
+    this.setState({ activeIndex });
   }
 
   render() {
     const { data } = this.props;
-    const { activeIndex } = this.state; 
+    const { activeIndex } = this.state;
 
     const tabs = data.map((entry, index) => {
-            return (
-              <div 
-                className = "Tab" 
-                key={entry.id} 
-                style={styles.tab}
-                onClick = { () => this.clickHandler(index)}>
-                {entry.name}
-              </div>
-          )})
+      const isActive = index === activeIndex;
+      const style = isActive ? styles.activeTab : styles.tab;
 
+      return (
+        <div
+          className="Tab"
+          key={entry.id}
+          style={style}
+          onClick={() => this.clickHandler(index)}
+        >
+          {entry.name}
+        </div>
+      );
+    });
 
     return (
       <div className="Tabs">
@@ -66,7 +70,7 @@ class Tabs extends React.Component {
           {data[activeIndex].description}
         </div>
       </div>
-    )
+    );
   }
 }
 
@@ -75,16 +79,16 @@ class App extends React.Component {
     return (
       <div>
         <h1>Countries</h1>
-        <Tabs data={this.props.countries}/>
+        <Tabs data={this.props.countries} />
       </div>
-    )
+    );
   }
 }
 
 const DATA = [
-  { id: 1, name: 'USA', description: 'Land of the Free, Home of the brave' },
-  { id: 2, name: 'Brazil', description: 'Sunshine, beaches, and Carnival' },
-  { id: 3, name: 'Russia', description: 'World Cup 2018!' }
-]
+  { id: 1, name: "USA", description: "Land of the Free, Home of the brave" },
+  { id: 2, name: "Brazil", description: "Sunshine, beaches, and Carnival" },
+  { id: 3, name: "Russia", description: "World Cup 2018!" }
+];
 
-ReactDOM.render(<App countries={DATA}/>, document.getElementById('app'))
+ReactDOM.render(<App countries={DATA} />, document.getElementById("app"));
